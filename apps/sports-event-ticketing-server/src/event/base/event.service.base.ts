@@ -49,4 +49,7 @@ export class EventServiceBase {
       })
       .tickets(args);
   }
+  async EventDashboard(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

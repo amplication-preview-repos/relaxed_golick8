@@ -49,6 +49,9 @@ export class TicketServiceBase {
       })
       .event();
   }
+  async Checkout(args: TicketFindUniqueArgs): Promise<string> {
+    throw new Error("Not implemented");
+  }
   async SellTicket(args: TicketFindUniqueArgs): Promise<string> {
     throw new Error("Not implemented");
   }

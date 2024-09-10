@@ -175,6 +175,14 @@ export class TicketResolverBase {
   }
 
   @graphql.Mutation(() => String)
+  async Checkout(
+    @graphql.Args()
+    args: TicketFindUniqueArgs
+  ): Promise<string> {
+    return this.service.Checkout(args);
+  }
+
+  @graphql.Mutation(() => String)
   async SellTicket(
     @graphql.Args()
     args: TicketFindUniqueArgs

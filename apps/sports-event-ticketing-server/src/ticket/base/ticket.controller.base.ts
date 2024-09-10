@@ -242,6 +242,23 @@ export class TicketControllerBase {
     }
   }
 
+  @common.Post("/checkout")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async Checkout(
+    @common.Body()
+    body: TicketFindUniqueArgs
+  ): Promise<string> {
+    return this.service.Checkout(body);
+  }
+
   @common.Post("/sell-ticket")
   @swagger.ApiOkResponse({
     type: String,

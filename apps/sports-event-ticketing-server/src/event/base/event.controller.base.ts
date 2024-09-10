@@ -306,4 +306,21 @@ export class EventControllerBase {
       select: { id: true },
     });
   }
+
+  @common.Get("/event-dashboard")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async EventDashboard(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.EventDashboard(body);
+  }
 }

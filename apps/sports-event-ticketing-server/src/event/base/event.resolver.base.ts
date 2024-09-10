@@ -159,4 +159,12 @@ export class EventResolverBase {
 
     return results;
   }
+
+  @graphql.Query(() => String)
+  async EventDashboard(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.EventDashboard(args);
+  }
 }
